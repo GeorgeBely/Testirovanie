@@ -1,16 +1,31 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Question {
 
     private String name;
-    private List<Object> options;
+    private List<Answer> answers;
     private String type;
+    private List<Answer> rightAnswer;
+    private boolean leftTitle;
 
-    public Question(String name, String type, List<Object> options) {
+    public Question(String name, String type, List<Answer> answers, int... indexRightAnswer) {
         this.name = name;
-        this.options = options;
+        this.answers = answers;
         this.type = type;
+        this.rightAnswer = new ArrayList<>();
+        for (int i : indexRightAnswer)
+            this.rightAnswer.add(answers.get(i));
+    }
 
+    public Question(String name, String type, List<Answer> answers, boolean leftTitle, int... indexRightAnswer) {
+        this.name = name;
+        this.answers = answers;
+        this.type = type;
+        this.leftTitle = leftTitle;
+        this.rightAnswer = new ArrayList<>();
+        for (int i : indexRightAnswer)
+            this.rightAnswer.add(answers.get(i));
     }
 
     public String getName() {
@@ -21,12 +36,12 @@ public class Question {
         this.name = name;
     }
 
-    public List<Object> getOptions() {
-        return options;
+    public List<Answer> getAnswers() {
+        return answers;
     }
 
-    public void setOptions(List<Object> options) {
-        this.options = options;
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
     }
 
     public String getType() {
@@ -35,5 +50,21 @@ public class Question {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public List<Answer> getRightAnswer() {
+        return rightAnswer;
+    }
+
+    public void setRightAnswer(List<Answer> rightAnswer) {
+        this.rightAnswer = rightAnswer;
+    }
+
+    public boolean isLeftTitle() {
+        return leftTitle;
+    }
+
+    public void setLeftTitle(boolean leftTitle) {
+        this.leftTitle = leftTitle;
     }
 }

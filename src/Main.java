@@ -1,7 +1,13 @@
 
 
 public class Main {
+
+    public static MainFrame frame;
+
+
     public static void main(String[] args) {
-        new MainFrame();
+        frame = new MainFrame(QuestionService.getQuestions());
+        frame.setVisible(true);
     }
+
 }
