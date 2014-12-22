@@ -76,7 +76,6 @@ public class MainFrame extends JFrame {
             setLocation(0, 0);
             setSize(container.getSize());
             setBackground(Color.white);
-//           setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         }};
         container.add(panelContainer);
 

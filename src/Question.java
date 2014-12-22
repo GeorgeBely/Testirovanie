@@ -10,12 +10,7 @@ public class Question {
     private boolean leftTitle;
 
     public Question(String name, String type, List<Answer> answers, int... indexRightAnswer) {
-        this.name = name;
-        this.answers = answers;
-        this.type = type;
-        this.rightAnswer = new ArrayList<>();
-        for (int i : indexRightAnswer)
-            this.rightAnswer.add(answers.get(i));
+        this(name, type, answers, false, indexRightAnswer);
     }
 
     public Question(String name, String type, List<Answer> answers, boolean leftTitle, int... indexRightAnswer) {

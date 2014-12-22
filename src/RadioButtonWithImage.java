@@ -9,24 +9,21 @@ public class RadioButtonWithImage extends JToggleButton {
     private JLabel image;
 
     public RadioButtonWithImage(Icon icon) {
-        image = new  JLabel(icon);
-        radio = new JRadioButton();
-        add(radio);
+        image = new JLabel(icon);
+        add(getRadio());
         add(image);
     }
 
     public void addToButtonGroup(ButtonGroup group) {
-        group.add(radio);
+        group.add(getRadio());
     }
 
     public void addActionListener(ActionListener listener) {
-        if (radio != null)
-        radio.addActionListener(listener);
+        getRadio().addActionListener(listener);
     }
 
     public void addChangeListener(ChangeListener listener) {
-        if (radio != null)
-        radio.addChangeListener(listener);
+        getRadio().addChangeListener(listener);
     }
 
     public Icon getImage() {
@@ -38,6 +35,8 @@ public class RadioButtonWithImage extends JToggleButton {
     }
 
     public JRadioButton getRadio() {
+        if (radio == null)
+            radio = new JRadioButton();
         return radio;
     }
 }
